@@ -25,7 +25,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    // <-- questo è il metodo richiesto
     private async void OpenCart_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new CartPage());
