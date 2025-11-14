@@ -7,6 +7,13 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
 
+            <Button Text="Apri Carrello"
+            BackgroundColor="DarkBlue"
+            TextColor="White"
+            FontSize="18"
+            Clicked="OpenCart_Clicked" />
+
+
             <Label Text="Lista prodotti"
                    FontSize="24"
                    HorizontalOptions="Center" />

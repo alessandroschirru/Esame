@@ -25,6 +25,12 @@
             <Label x:Name="ProductDescription"
                    FontSize="16"/>
 
+            <Button Text="Aggiungi al carrello"
+            BackgroundColor="Green"
+            TextColor="White"
+            FontSize="20"
+            Clicked="AddToCart_Clicked" />
+
         </VerticalStackLayout>
     </ScrollView>
 

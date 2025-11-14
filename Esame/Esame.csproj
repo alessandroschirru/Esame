@@ -63,12 +63,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="CartPage.xaml.cs">
+	    <DependentUpon>CartPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ProductDetailPage.xaml.cs">
 	    <DependentUpon>ProductDetailPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="CartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ProductDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
