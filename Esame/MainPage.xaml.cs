@@ -1,25 +1,27 @@
-﻿namespace Esame
+﻿namespace Esame;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    private readonly RestService _restService = new RestService();
+
+    public MainPage()
     {
-        int count = 0;
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        InitializeComponent();
+        LoadProducts();
     }
 
+    private async void LoadProducts()
+    {
+        var products = await _restService.GetProductsAsync();
+        ProductsCollection.ItemsSource = products;
+    }
+
+    private async void ProductsCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is Product p)
+        {
+            await Navigation.PushAsync(new ProductDetailPage(p));
+            ProductsCollection.SelectedItem = null;
+        }
+    }
 }
